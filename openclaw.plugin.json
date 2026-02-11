@@ -1,0 +1,13 @@
+{
+  "id": "tapd-status-report",
+  "name": "TAPD Status Report",
+  "description": "Ship TAPD status-report skill for product R&D story/bug/task reporting.",
+  "skills": [
+    "./skills/tapd-status-report"
+  ],
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {}
+  }
+}

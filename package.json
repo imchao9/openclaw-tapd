@@ -1,0 +1,26 @@
+{
+  "name": "openclaw-tapd-status-report",
+  "version": "0.1.0",
+  "description": "OpenClaw plugin that ships TAPD status-report skill (story/bug/task).",
+  "type": "module",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "openclaw.plugin.json",
+    "skills/tapd-status-report/SKILL.md"
+  ],
+  "keywords": [
+    "openclaw",
+    "plugin",
+    "tapd",
+    "skill",
+    "status-report"
+  ],
+  "license": "MIT",
+  "openclaw": {
+    "extensions": [
+      "./index.js"
+    ],
+    "installDependencies": false
+  }
+}

@@ -1,0 +1,24 @@
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
+
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Build artifacts
+*.tgz
+*.zip
+
+# Local outputs / data files
+output/
+*.xls
+*.xlsx
+*.csv
+
+# Optional legacy scripts (may contain local credentials)
+scripts/
+requirement.md
+requirements.txt
