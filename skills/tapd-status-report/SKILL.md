@@ -9,6 +9,15 @@ metadata: {"openclaw":{"emoji":"📊","skillKey":"tapd-status-report","primaryEn
 
 使用 TAPD OpenAPI 提供最小可用状态汇报能力：需求（story）、缺陷（bug）、任务（task）。
 
+# 强制只读规则（必须遵守）
+
+本技能必须运行在**只读模式**，以下规则为硬性约束：
+
+- 只能调用读取接口（`GET`），不能调用任何写入类接口。
+- 严禁使用 `POST`、`PUT`、`PATCH`、`DELETE` 请求方法。
+- 严禁调用任何创建、修改、删除、批量更新、锁定/解锁等操作接口（如 `add_*`、`update_*`、`delete_*`、`batch_update_*`、`lock_*`、`unlock_*`）。
+- 如果用户提出“修改 TAPD 数据”的请求，必须拒绝执行并说明：当前技能仅支持只读查询与状态汇报。
+
 # OpenClaw 配置约定
 
 要求环境变量：
