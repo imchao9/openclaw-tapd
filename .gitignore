@@ -19,6 +19,6 @@ output/
 *.csv
 
 # Optional legacy scripts (may contain local credentials)
-scripts/
+/scripts/
 requirement.md
 requirements.txt

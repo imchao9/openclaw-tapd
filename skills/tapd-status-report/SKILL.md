@@ -2,7 +2,7 @@
 name: tapd-status-report
 description: 提供 TAPD OpenAPI 的基础接口信息，用于按项目（workspace）汇报需求、缺陷、任务状态。适用于“汇报产品研发中心需求状态/缺陷状态/任务状态”“给 OpenClaw 配置 TAPD 状态查询”这类请求。
 homepage: https://open.tapd.cn/document/api-doc/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/
-metadata: {"openclaw":{"emoji":"📊","skillKey":"tapd-status-report","primaryEnv":"TAPD_API_PASSWORD","requires":{"bins":["curl","jq"],"env":["TAPD_API_USER","TAPD_API_PASSWORD","TAPD_WORKSPACE_ID"]}}}
+metadata: {"openclaw":{"emoji":"📊","skillKey":"tapd-status-report","primaryEnv":"TAPD_API_PASSWORD","requires":{"bins":["curl","jq","python3"],"env":["TAPD_API_USER","TAPD_API_PASSWORD","TAPD_WORKSPACE_ID"]}}}
 ---
 
 # 目标
@@ -87,6 +87,38 @@ curl -sS -u "$TAPD_API_USER:$TAPD_API_PASSWORD" \
 
 - TAPD 项目可能自定义状态流转，状态值不要写死。
 - 先查字段定义，再按返回的 `status` 候选值做分组统计更稳妥。
+
+# 内置脚本（推荐给 OpenClaw 直接调用）
+
+脚本路径：
+
+- `scripts/tapd_project_report.py`
+
+用途：
+
+- 输出当前项目需求/缺陷/任务总数
+- 输出当前进行中的迭代列表（默认 `status=open`）
+
+最小用法：
+
+```bash
+python3 skills/tapd-status-report/scripts/tapd_project_report.py
+```
+
+常用参数：
+
+```bash
+# 查询全部状态迭代（不过滤 status）
+python3 skills/tapd-status-report/scripts/tapd_project_report.py --iteration-status ""
+
+# 输出 JSON（便于二次加工）
+python3 skills/tapd-status-report/scripts/tapd_project_report.py --format json
+```
+
+脚本入参来源：
+
+- 优先读取命令行参数
+- 否则读取环境变量：`TAPD_API_USER`、`TAPD_API_PASSWORD`、`TAPD_WORKSPACE_ID`
 
 # 汇报输出模板
 
