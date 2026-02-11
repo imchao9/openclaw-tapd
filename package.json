@@ -8,7 +8,8 @@
     "index.js",
     "openclaw.plugin.json",
     "skills/tapd-status-report/SKILL.md",
-    "skills/tapd-status-report/scripts/tapd_project_report.py"
+    "skills/tapd-status-report/scripts/tapd_project_report.py",
+    "skills/tapd-status-report/scripts/tapd_project_report_app_token.py"
   ],
   "keywords": [
     "openclaw",
